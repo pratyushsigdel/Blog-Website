@@ -34,7 +34,7 @@ export class AuthService {
         return userAccount;
       }
     } catch (error) {
-      console.log("AppWrite Service Error:: getCurrent User", error);
+      console.log("AppWrite Service Error:: createAccount", error);
     }
   }
   //Creating Login Method

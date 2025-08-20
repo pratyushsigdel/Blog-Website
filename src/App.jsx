@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import authService from "./appwrite/auth";
 import { login, logout } from "./store/authSlice";
 import { Footer, Header } from "./components";
-import { Outlet } from "react-router-dom";
+import { Outlet, Route } from "react-router-dom";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -28,6 +28,7 @@ function App() {
         <Header />
         <main>Should Work on this {/* <Outlet /> */}</main>
         <Footer />
+      
       </div>
     </div>
   ) : null;
