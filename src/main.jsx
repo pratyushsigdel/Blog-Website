@@ -1,11 +1,20 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import { Provider } from 'react-redux'
-import store from './store/store.js'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { AddPost, AllPosts, AuthLayout, EditPost, Login, Post, Signup,Home} from './components/index.js'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { Provider } from "react-redux";
+import store from "./store/store.js";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  AddPost,
+  AllPosts,
+  AuthLayout,
+  EditPost,
+  Login,
+  Post,
+  Signup,
+  Home,
+} from "./components/index.js";
 
 const router = createBrowserRouter([
   {
@@ -14,44 +23,43 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home/>
+        element: <Home />,
       },
       {
         path: "/login",
         element: (
           <AuthLayout authentication={false}>
-            <Login/>
+            <Login />
           </AuthLayout>
-        )
+        ),
       },
       {
         path: "/signup",
         element: (
-          <AuthLayout authentication= {false} >
-            <Signup/>
+          <AuthLayout authentication={false}>
+            <Signup />
           </AuthLayout>
-        )
+        ),
       },
 
       {
         path: "/all-posts",
-        element:(
+        element: (
           <AuthLayout authentication>
             {" "}
-            <AllPosts/>
+            <AllPosts />
           </AuthLayout>
-        )
+        ),
       },
 
       {
         path: "/add-post",
         element: (
-          <AuthLayout authentication >
+          <AuthLayout authentication>
             {" "}
             <AddPost />
           </AuthLayout>
-
-        )
+        ),
       },
 
       {
@@ -59,28 +67,23 @@ const router = createBrowserRouter([
         element: (
           <AuthLayout authentication>
             {" "}
-            <EditPost/>
+            <EditPost />
           </AuthLayout>
-        )
-
+        ),
       },
 
       {
         path: "/post/:slug",
-        element: <Post/>
-      }
+        element: <Post />,
+      },
+    ],
+  },
+]);
 
-
-    ]
-  }
-])
-
-
-
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
-    <RouterProvider router={router}  />
+      <RouterProvider router={router} />
     </Provider>
-  </StrictMode>,
-)
+  </StrictMode>
+);
